@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>Cake Order Platform</h1>
-      <ul>
+      <ul className="flex justify-between items-center p-2">
         <li><a href="/">Home</a></li>
         <li><a href="/catalog">Catalog</a></li>
         <li><a href="/order">Order</a></li>
