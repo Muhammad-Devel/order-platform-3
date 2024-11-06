@@ -1,8 +1,5 @@
 "use client";
-
-import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import React from "react";
 
 export default function HeroSection() {
   return (
@@ -10,13 +7,11 @@ export default function HeroSection() {
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        style={{
+          backgroundImage: "url('/images/cake-banner-bg.jpg')",
+        }}
       >
-        <div
-          style={{
-            backgroundImage: "url('/images/cake-banner-bg.jpg')",
-          }}
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-        />
+        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
       </div>
 
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -26,8 +21,7 @@ export default function HeroSection() {
           </h1>
           <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
             O'zingizga mos to'rtni buyurtma qiling, biz uni yangi tayyorlab
-            beramiz va manzilingizga yetkazib beramiz yoki olib ketishingiz
-            mumkin.
+            beramiz va manzilingizga yetkazamiz yoki olib ketishingiz mumkin.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
