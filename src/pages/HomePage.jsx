@@ -4,6 +4,34 @@ import React from "react";
 
 import HeroSection from '../components/HeroSection'
 import Header from '../components/Header'
+import FeaturedProducts from "../components/FeaturedProducts";
+
+const products = [
+  {
+    id: 1,
+    name: "Chocolate Cake",
+    description: "Rich chocolate cake with dark chocolate glaze.",
+    price: "$20",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: "Vanilla Cake",
+    description: "Classic vanilla sponge with buttercream frosting.",
+    price: "$18",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+  {
+    id: 3,
+    name: "Red Velvet Cake",
+    description: "Smooth red velvet cake with cream cheese frosting.",
+    price: "$22",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+];
 
 
 export default function HomePage() {
@@ -15,6 +43,7 @@ export default function HomePage() {
      <main>
         <HeroSection />
      </main>
+     <FeaturedProducts products={products}/>
     </div>
   )
 }
