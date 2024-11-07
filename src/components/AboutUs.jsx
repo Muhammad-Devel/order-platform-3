@@ -5,7 +5,7 @@ const AboutUs = () => {
     <section className="py-12 bg-white">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4">
-          About Us
+          Bizning Markaz
         </h2>
 
         <p className="text-gray-700 max-w-2xl mx-auto">

@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCartPlus } from "react-icons/fa";
 
 const FeaturedProducts = ({ products }) => {
   return (
@@ -19,30 +20,35 @@ const FeaturedProducts = ({ products }) => {
                 className="w-full h-48 object-cover rounded-t-lg"
               />
               <div className="p-4">
-                <h3 className="text-xl font-semibold">{product.name}</h3>
+                <h3 className="text-xl font-semibold text-purple-500">{product.name}</h3>
                 <p className="text-gray-700">{product.description}</p>
-                <p className="mt-4 text-lg font-bold">
-                  {product.price}
-                  {product.discount && (
-                    <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-xs rounded-full">
-                      {product.discount}% Off
-                    </span>
-                  )}
-                </p>
-                <div className="flex items-center">
-                  {[...Array(Math.floor(product.rating))].map((_, index) => (
-                    <svg
-                      key={index}
-                      className="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.5 4.6a1 1 0 00.95.69h4.818c.969 0 1.371 1.24.588 1.81l-3.899 2.83a1 1 0 00-.364 1.118l1.5 4.6c.3.921-.755 1.688-1.538 1.118L10 15.293l-3.899 2.83c-.783.57-1.838-.197-1.538-1.118l1.5-4.6a1 1 0 00-.364-1.118L1.8 10.027c-.784-.57-.38-1.81.588-1.81h4.818a1 1 0 00.95-.69l1.5-4.6z" />
-                    </svg>
-                  ))}
-                  <span className="ml-2 text-sm text-gray-600">
-                    {product.rating}
-                  </span>
+                <div>
+                  <p className="flex justify-between items-center mt-4 text-lg font-bold text-purple-500">
+                    {product.price}
+                    {product.discount && (
+                      <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-xs rounded-full">
+                        {product.discount}% Off
+                      </span>
+                    )}
+
+                    <div className="flex items-center">
+                      {[...Array(Math.floor(product.rating))].map(
+                        (_, index) => (
+                          <svg
+                            key={index}
+                            className="w-5 h-5 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.5 4.6a1 1 0 00.95.69h4.818c.969 0 1.371 1.24.588 1.81l-3.899 2.83a1 1 0 00-.364 1.118l1.5 4.6c.3.921-.755 1.688-1.538 1.118L10 15.293l-3.899 2.83c-.783.57-1.838-.197-1.538-1.118l1.5-4.6a1 1 0 00-.364-1.118L1.8 10.027c-.784-.57-.38-1.81.588-1.81h4.818a1 1 0 00.95-.69l1.5-4.6z" />
+                          </svg>
+                        )
+                      )}
+                      <span className="ml-2 text-sm text-gray-600">
+                        {product.rating}
+                      </span>
+                    </div>
+                  </p>
                 </div>
 
                 {/* Buy Now or View Details Button */}
@@ -50,16 +56,16 @@ const FeaturedProducts = ({ products }) => {
                   {/* "Buy Now" tugmasi */}
                   <button
                     onClick={() => buyNow(product)}
-                    className="w-1/2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                    className="w-1/2 bg-purple-500 text-white py-1 px-4 rounded-md hover:bg-purple-600"
                   >
-                    Buy Now
+                   Buyurtma berish
                   </button>
                   {/* "Add to Cart" tugmasi */}
                   <button
                     onClick={() => addToCart(product)}
-                    className="w-1/2 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
+                    className="flex items-center justify-end w-1/2 text-purple-500 text-4xl py-1 px-4 rounded-md hover:text-purple-600"
                   >
-                    Add to Cart
+                    <FaCartPlus />
                   </button>
                 </div>
               </div>
