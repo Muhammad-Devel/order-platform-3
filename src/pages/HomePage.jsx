@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import React from "react";
 
-import HeroSection from '../components/HeroSection'
-import Header from '../components/Header'
+import HeroSection from "../components/HeroSection";
+import Header from "../components/Header";
 import FeaturedProducts from "../components/FeaturedProducts";
 import AboutUs from "../components/AboutUs";
 import ContactUs from "../components/ContactUs";
@@ -60,20 +60,21 @@ const products = [
   },
 ];
 
-
 export default function HomePage() {
-  
-
   return (
     <div className="bg-white">
-     <Header />
-     <main>
+      <Header />
+      <main>
         <HeroSection />
-     </main>
-     <FeaturedProducts products={products}/>
-     <AboutUs />
-     <ContactUs />
-     <Footer />
+      </main>
+
+      <FeaturedProducts products={products} />
+
+      <AboutUs />
+
+      <ContactUs />
+
+      <Footer />
     </div>
-  )
+  );
 }

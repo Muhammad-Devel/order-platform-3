@@ -24,7 +24,9 @@ const Footer = () => {
             <FaTwitter size={24} />
           </a>
         </div>
-        <p className="text-sm">© {new Date().getFullYear()} Jumaboyev M.A. All rights reserved.</p>
+        <p className="text-sm">
+          © {new Date().getFullYear()} Jumaboyev M.A. All rights reserved.
+        </p>
       </div>
     </footer>
   );

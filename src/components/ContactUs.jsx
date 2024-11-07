@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,7 +21,10 @@ const ContactUs = () => {
     <section className="py-12 bg-gray-100 ">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-6">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-lg mx-auto bg-gray-100 p-6 rounded-lg shadow-lg"
+        >
           <div className="mb-4">
             <label className="block text-left text-gray-700">Name</label>
             <input
