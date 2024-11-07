@@ -10,6 +10,7 @@ const navigation = [
 ];
 
 const Navbar = () => {
+  
   return (
     <>
       <nav
@@ -35,15 +36,15 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-sm/6 font-semibold text-gray-900"
+              className="text-sm/6 font-semibold text-gray-900 transform transition ease-in-out duration-300 hover:scale-110"
             >
               {item.name}
             </a>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
+          <a href="#" className="text-sm/6 font-semibold text-gray-900 transform transition ease-in-out duration-300 hover:scale-110">
+            Kirish <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
