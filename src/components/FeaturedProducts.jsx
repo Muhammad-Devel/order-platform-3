@@ -46,9 +46,22 @@ const FeaturedProducts = ({ products }) => {
                 </div>
 
                 {/* Buy Now or View Details Button */}
-                <button className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
-                  Buy Now
-                </button>
+                <div className="mt-4 flex space-x-2">
+                  {/* "Buy Now" tugmasi */}
+                  <button
+                    onClick={() => buyNow(product)}
+                    className="w-1/2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                  >
+                    Buy Now
+                  </button>
+                  {/* "Add to Cart" tugmasi */}
+                  <button
+                    onClick={() => addToCart(product)}
+                    className="w-1/2 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           ))}
