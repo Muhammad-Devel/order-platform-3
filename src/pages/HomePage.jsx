@@ -8,6 +8,7 @@ import FeaturedProducts from "../components/FeaturedProducts";
 import AboutUs from "../components/AboutUs";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
+import ProductSections from "../components/ProductSections";
 
 const products = [
   {
@@ -68,7 +69,8 @@ export default function HomePage() {
         <HeroSection />
       </main>
 
-      <FeaturedProducts products={products} />
+      {/* <FeaturedProducts products={products} /> */}
+      <ProductSections />
 
       <AboutUs />
 

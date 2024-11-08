@@ -6,16 +6,16 @@ const ProductCard = ({ product }) => {
   return (
     <div
       key={id}
-      className="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="bg-white p-0 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
     >
       <img
         src={imageUrl}
         alt={name}
-        className="w-full h-48 object-cover rounded-t-lg"
+        className="w-full h-48 sm:h-36 md:h-36 lg:h-36 object-cover rounded-t-lg"
       />
       <div className="p-4">
         <h3 className="text-xl font-semibold text-purple-500">{name}</h3>
-        <p className="text-gray-700">{description}</p>
+        <p className="text-gray-700 text-sm">{description}</p>
         <div>
           <p className="flex justify-between items-center mt-4 text-lg font-bold text-purple-500">
             {price}
@@ -42,18 +42,18 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Buy Now or View Details Button */}
-        <div className="mt-4 flex space-x-2">
+        <div className="mt-2 flex space-x-2">
           {/* "Buy Now" tugmasi */}
           <button
             onClick={() => buyNow(product)}
-            className="w-1/2 bg-purple-500 text-white py-1 px-4 rounded-md hover:bg-purple-600"
+            className="w-1/2 bg-purple-500 text-xs text-white py-1 px-4 rounded-md hover:bg-purple-600"
           >
             Buyurtma berish
           </button>
           {/* "Add to Cart" tugmasi */}
           <button
             onClick={() => addToCart(product)}
-            className="flex items-center justify-end w-1/2 text-purple-500 text-4xl py-1 px-4 rounded-md hover:text-purple-600"
+            className="flex items-center justify-end w-1/2 text-purple-500 text-3xl py-1 px-4 rounded-md hover:text-purple-600"
           >
             <FaCartPlus />
           </button>
