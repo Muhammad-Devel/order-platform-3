@@ -10,6 +10,7 @@ import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import ProductSections from "../components/ProductSections";
 
+
 const products = [
   {
     id: 1,
@@ -62,6 +63,7 @@ const products = [
 ];
 
 export default function HomePage() {
+
   return (
     <div className="bg-white">
       <Header />
@@ -71,7 +73,7 @@ export default function HomePage() {
 
       {/* <FeaturedProducts products={products} /> */}
       <ProductSections />
-
+      
       <AboutUs />
 
       <ContactUs />

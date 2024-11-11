@@ -1,12 +1,7 @@
-import React from "react";
-
-// Button komponenti: tugmaga props orqali text, onClick funksiyasi va className (stil) berish mumkin.
-const Button = ({ children, onClick, className, type = "button" }) => {
-  return (
-    <button className={className} onClick={onClick} type={type}>
-      {children}
+export const Button = ({onSubmit})=>{
+  return(
+    <button type="button" onClick={onSubmit}>
+      Submit
     </button>
-  );
-};
-
-export default Button;
+  )
+}
