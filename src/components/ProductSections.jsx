@@ -1,15 +1,44 @@
 import React, { useState } from "react";
 
 const ProductSections = () => {
-  // Holat yaratish: "featured" yoki "products" tanlanganini saqlaydi
-  const [activeTab, setActiveTab] = useState("featured");
+  const [activeTab, setActiveTab] = useState("tavsiyalar");
 
   return (
-    <div className="py-8">
-      {/* Bo'limlar sarlavhasi */}
-      <div className="flex justify-start items-center w-full border-b-2 border-purple-200 px-4 space-x-4">
-        <button className="px-4 py-4 text-bold text-lg font-medium active:border-b-4 active:border-purple-500" onSubmit={alert('yo')}>Tavsiyalar</button>
-        <button className="px-4 py-4">Mahsulotlar</button>
+    <div className="w-full max-w-3xl mx-auto">
+      {/* Tablar */}
+      <div className="flex justify-start space-x-4 border-b border-purple-300">
+        <button
+          className={`py-2 px-4 text-lg font-semibold ${
+            activeTab === "tavsiyalar"
+              ? "border-b-2 border-purple-500 text-black"
+              : "text-gray-500"
+          }`}
+          onClick={() => {
+            console.log("Tavsiyalar tugmasi bosildi"); // Konsolda chiqadi
+            setActiveTab("tavsiyalar");
+          }}
+        >
+          Tavsiyalar
+        </button>
+        <button
+          className={`py-2 px-4 text-lg font-semibold ${
+            activeTab === "mahsulotlar"
+              ? "border-b-2 border-purple-500 text-black"
+              : "text-gray-500"
+          }`}
+          onClick={() => {
+            console.log("Mahsulotlar tugmasi bosildi"); // Konsolda chiqadi
+            setActiveTab("mahsulotlar");
+          }}
+        >
+          Mahsulotlar
+        </button>
+      </div>
+
+      {/* Kontent qismi */}
+      <div className="mt-4">
+        {activeTab === "tavsiyalar" && <p>Tavsiyalar mazmuni...</p>}
+        {activeTab === "mahsulotlar" && <p>Mahsulotlar mazmuni...</p>}
       </div>
     </div>
   );

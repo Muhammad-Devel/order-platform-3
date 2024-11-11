@@ -1,7 +1,7 @@
 import React from "react";
 
 // Button komponenti: tugmaga props orqali text, onClick funksiyasi va className (stil) berish mumkin.
-const Button = ({ children, onClick, className, type = "button" }) => {
+const ProductsBtn = ({ children, onClick, className, type = "button" }) => {
   return (
     <button className={className} onClick={onClick} type={type}>
       {children}
@@ -9,4 +9,4 @@ const Button = ({ children, onClick, className, type = "button" }) => {
   );
 };
 
-export default Button;
+export default ProductsBtn;
