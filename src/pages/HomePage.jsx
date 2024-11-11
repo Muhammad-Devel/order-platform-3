@@ -8,7 +8,6 @@ import AboutUs from "../components/AboutUs";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import ProductSections from "../components/ProductSections";
-import TestButton from "../components/TestButton";
 
 const products = [
   {
@@ -71,7 +70,6 @@ export default function HomePage() {
 
       {/* <FeaturedProducts products={products} /> */}
       <ProductSections />
-      <TestButton />
 
       <AboutUs />
 
