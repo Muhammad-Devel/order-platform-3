@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import AboutUs from "../components/AboutUs";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
-import ProductSections from "../components/ProductSections";
+import ProductSections2 from "../components/ProductSections2";
 
 const products = [
   {
@@ -69,7 +69,7 @@ export default function HomePage() {
       </main>
 
       {/* <FeaturedProducts products={products} /> */}
-      <ProductSections />
+      <ProductSections2 />
 
       <AboutUs />
 
