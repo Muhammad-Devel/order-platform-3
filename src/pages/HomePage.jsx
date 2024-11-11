@@ -64,12 +64,12 @@ export default function HomePage() {
   return (
     <div className="bg-white">
       <Header />
-      <main>
+      <main className={"z-10"}>
         <HeroSection />
       </main>
 
       {/* <FeaturedProducts products={products} /> */}
-      <ProductSections2 />
+      <ProductSections2 className={"z-50"} />
 
       <AboutUs />
 

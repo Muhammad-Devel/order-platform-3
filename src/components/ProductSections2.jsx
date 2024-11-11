@@ -2,7 +2,7 @@ import { Tab } from "@headlessui/react";
 
 const ProductSections = () => {
   return (
-    <div className="py-8">
+    <div className="mt-20 py-8">
       <Tab.Group>
         {/* Tab Tugmalari */}
         <Tab.List className="flex space-x-4 border-b-2 border-purple-200 px-4">
