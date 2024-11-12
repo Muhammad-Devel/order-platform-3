@@ -1,5 +1,6 @@
 import { Tab } from "@headlessui/react";
 import FeaturedProducts from "./FeaturedProducts";
+import AllProducts from "./AllProducts";
 
 const ProductSections = ({products}) => {
   return (
@@ -33,7 +34,7 @@ const ProductSections = ({products}) => {
             <FeaturedProducts products={products}/>
           </Tab.Panel>
           <Tab.Panel>
-            <p>Mahsulotlar ro'yhati</p>
+            <AllProducts products={products}/>
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
