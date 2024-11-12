@@ -69,7 +69,7 @@ export default function HomePage() {
       </main>
 
       {/* <FeaturedProducts products={products} /> */}
-      <ProductSections2 className={"z-50"} />
+      <ProductSections2 products={products} />
 
       <AboutUs />
 
