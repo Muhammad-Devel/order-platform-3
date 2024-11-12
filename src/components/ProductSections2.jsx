@@ -11,7 +11,7 @@ const ProductSections = ({products}) => {
             className={({ selected }) =>
               selected
                 ? "px-4 py-4 text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 border-b-4 border-purple-500 focus:outline-none"
-                : "px-4 py-4 text-lg font-medium"
+                : "px-4 py-4 text-lg font-medium text-gray-500"
             }
           >
             Tavsiyalar
@@ -20,7 +20,7 @@ const ProductSections = ({products}) => {
             className={({ selected }) =>
               selected
                 ? "px-4 py-4 text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 border-b-4 border-purple-500 focus:outline-none"
-                : "px-4 py-4 text-lg font-medium"
+                : "px-4 py-4 text-lg font-medium text-gray-500"
             }
           >
             Mahsulotlar
