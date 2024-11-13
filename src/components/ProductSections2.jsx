@@ -1,8 +1,20 @@
+import React, { useState, useEffect } from "react";
 import { Tab } from "@headlessui/react";
 import FeaturedProducts from "./FeaturedProducts";
 import AllProducts from "./AllProducts";
 
-const ProductSections = ({products}) => {
+const ProductSections = ({ products }) => {
+  const [loading, setLoading] = useState(true);
+  const [product, setProducts] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setProducts(products);
+      setLoading(false);
+    }, 2000);
+  }, [products]);
+
   return (
     <div className="mt-20 py-8">
       <Tab.Group>
@@ -31,10 +43,31 @@ const ProductSections = ({products}) => {
         {/* Tab kontentlari */}
         <Tab.Panels className="mt-4 px-4">
           <Tab.Panel>
-            <FeaturedProducts products={products}/>
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <div className="loader ease-linear rounded-full border-8 border-t-8 border-purple-200 border-t-purple-500 h-32 w-32"></div>
+                {/* Loaderni Tailwind yordamida animatsiyalash */}
+                <style jsx>{`
+                  .loader {
+                    
+                    animation: spin 1s infinite linear;
+                  }
+                  @keyframes spin {
+                    0% {
+                      transform: rotate(0deg);
+                    }
+                    100% {
+                      transform: rotate(360deg);
+                    }
+                  }
+                `}</style>
+              </div>
+            ) : (
+              <FeaturedProducts products={product} />
+            )}
           </Tab.Panel>
           <Tab.Panel>
-            <AllProducts products={products}/>
+            <AllProducts products={product} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

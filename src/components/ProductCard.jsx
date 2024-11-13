@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   return (
     <div
       key={id}
-      className="bg-white p-0 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className="bg-white p-0 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform transition-shadow duration-300"
     >
       <img
         src={imageUrl}

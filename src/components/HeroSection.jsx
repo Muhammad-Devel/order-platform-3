@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <div className="relative isolate px-6 pt-8 lg:px-8">
+    <div className="relative isolate px-6 pt-24 lg:px-8">
       {/* Background Image */}
       <div
         aria-hidden="true"
@@ -15,7 +15,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content Section */}
-      <div className="mx-auto max-w-2xl py-8 sm:py-12 lg:py-14">
+      <div className="mx-auto max-w-2xl py-6 sm:py-6 lg:py-6">
         {" "}
         {/* Paddingni qisqartirdim */}
         <div className="text-center">

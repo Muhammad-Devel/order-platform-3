@@ -40,7 +40,7 @@ const products = [
     description: "Rich chocolate cake with dark chocolate glaze.",
     price: "$20",
     imageUrl: "https://via.placeholder.com/150",
-    rating: 4.5,
+    rating: 3.8,
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const products = [
     description: "Smooth red velvet cake with cream cheese frosting.",
     price: "$22",
     imageUrl: "https://via.placeholder.com/150",
-    rating: 4.5,
+    rating: 1.5,
   },
 ];
 
