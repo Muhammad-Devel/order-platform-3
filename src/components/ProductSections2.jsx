@@ -49,7 +49,6 @@ const ProductSections = ({ products }) => {
                 {/* Loaderni Tailwind yordamida animatsiyalash */}
                 <style jsx>{`
                   .loader {
-                    
                     animation: spin 1s infinite linear;
                   }
                   @keyframes spin {
@@ -63,11 +62,11 @@ const ProductSections = ({ products }) => {
                 `}</style>
               </div>
             ) : (
-              <FeaturedProducts products={product} />
+              <FeaturedProducts products={product[0]} />
             )}
           </Tab.Panel>
           <Tab.Panel>
-            <AllProducts products={product} />
+            <AllProducts products={product[1]} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

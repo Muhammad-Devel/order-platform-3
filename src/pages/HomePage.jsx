@@ -9,7 +9,7 @@ import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
 import ProductSections2 from "../components/ProductSections2";
 
-const products = [
+const products1 = [
   {
     id: 1,
     name: "Chocolate Cake",
@@ -59,6 +59,56 @@ const products = [
     rating: 1.5,
   },
 ];
+const products2 = [
+  {
+    id: 1,
+    name: "Chocolate Cake",
+    description: "Rich chocolate cake with dark chocolate glaze.",
+    price: "$15",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 2.5,
+  },
+  {
+    id: 2,
+    name: "Vanilla Cake",
+    description: "Classic vanilla sponge with buttercream frosting.",
+    price: "$18",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+  {
+    id: 3,
+    name: "Red Velvet Cake",
+    description: "Smooth red velvet cake with cream cheese frosting.",
+    price: "$22",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    name: "Chocolate Cake",
+    description: "Rich chocolate cake with dark chocolate glaze.",
+    price: "$20",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 3.8,
+  },
+  {
+    id: 5,
+    name: "Vanilla Cake",
+    description: "Classic vanilla sponge with buttercream frosting.",
+    price: "$28",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+  {
+    id: 6,
+    name: "Red Velvet Cake",
+    description: "Smooth red velvet cake with cream cheese frosting.",
+    price: "$22",
+    imageUrl: "https://via.placeholder.com/150",
+    rating: 4.5,
+  },
+];
 
 export default function HomePage() {
   return (
@@ -69,7 +119,7 @@ export default function HomePage() {
       </main>
 
       {/* <FeaturedProducts products={products} /> */}
-      <ProductSections2 products={products} />
+      <ProductSections2 products={[products1, products2]} />
 
       <AboutUs />
 
