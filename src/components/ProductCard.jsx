@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart }) => {
   const { id, name, imageUrl, description, price, discount, rating } = product;
   return (
     <div

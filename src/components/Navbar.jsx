@@ -1,16 +1,15 @@
 import React from "react";
-
+import { Link } from "react-router-dom"; // Linkni to'g'ri import qilish
 import DropdownMenu from "./DropdownMenu";
 
 const navigation = [
   { name: "Product", href: "#" },
   { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
+  { name: "Savat", href: "/product-page" }, // Yo'nalishni to'g'rilaymiz
   { name: "Company", href: "#" },
 ];
 
 const Navbar = () => {
-  
   return (
     <>
       <nav
@@ -18,37 +17,35 @@ const Navbar = () => {
         className="flex items-center justify-between p-6 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img
-              alt=""
+              alt="Company Logo"
               src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
-        <DropdownMenu />
-          
+          <DropdownMenu />
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className="text-sm/6 font-semibold text-gray-900 transform transition ease-in-out duration-300 hover:scale-110"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-gray-900 transform transition ease-in-out duration-300 hover:scale-110">
+          <Link to="/login" className="text-sm/6 font-semibold text-gray-900 transform transition ease-in-out duration-300 hover:scale-110">
             Kirish <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
       </nav>
-     
     </>
   );
 };
