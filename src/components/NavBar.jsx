@@ -5,9 +5,9 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-purple-900 p-4">
+    <nav className="bg-white p-4 shadow-sm">
       <div className="flex justify-between items-center">
-        <div className="text-white text-lg font-bold">My Website</div>
+        <div className="text-black text-lg font-bold">My Website</div>
         <div>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -26,8 +26,8 @@ function NavBar() {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-white font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
+                  : "text-gray-300 hover:text-claret-700"
               }
               end
             >
@@ -39,8 +39,8 @@ function NavBar() {
               to="/buyurtmalar"
               className={({ isActive }) =>
                 isActive
-                  ? "text-white font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
+                  : "text-gray-300 hover:text-claret-700"
               }
             >
               Buyurtmalar
@@ -51,8 +51,8 @@ function NavBar() {
               to="/login"
               className={({ isActive }) =>
                 isActive
-                  ? "text-white font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-white"
+                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
+                  : "text-gray-300 hover:text-claret-700"
               }
             >
               Login
