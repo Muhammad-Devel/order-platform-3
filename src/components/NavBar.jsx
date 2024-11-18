@@ -3,7 +3,7 @@ import { useState } from "react"; // Responsive menyuni boshqarish uchun hook
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [links, setLinks] = useState()
   return (
     <nav className="bg-white p-4 shadow-sm">
       <div className="flex justify-between items-center">
@@ -11,7 +11,7 @@ function NavBar() {
         <div>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white md:hidden"
+            className="text-claret-600 text-2xl text-bold md:hidden"
           >
             {/* Mobil menyu tugmasi */}☰
           </button>
@@ -26,8 +26,8 @@ function NavBar() {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-claret-700"
+                  ? "text-claret-600 font-bold border-b-2 border-blue-500 tranform delay-150"
+                  : "text-gray-300 hover:text-claret-700 hover:transition-all"
               }
               end
             >
