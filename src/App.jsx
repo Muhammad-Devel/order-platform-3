@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import OrderPage from "./pages/OrderPage";
 import LoginPage from "./pages/LoginPage";
-import NavBar from "./components/NavBar";
+import Navbar from "./components/Navbar";
+import Ordered from "./pages/Ordered";
 
 function App() {
   return (
     <Router>
       <div>
-        <NavBar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/buyurtmalar" element={<OrderPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/ordered" element={<Ordered />} />
         </Routes>
       </div>
     </Router>

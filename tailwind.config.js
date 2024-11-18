@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'], // Asosiy shrift
+        serif: ['Merriweather', 'serif'], // Alternativ shrift
+      },
+    },
     colors: {
       white: {
         DEFAULT: "#ffffff",

@@ -1,3 +1,20 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@layer base {
+    body {
+      @apply font-sans;
+    }
+  }
+
+  @tailwind components;
+  
+ @layer components {
+    .li-styles-active {
+      @apply text-claret-600 font-bold border-b-2 border-claret-600
+    }
+    .li-styles-hover{
+      @apply text-claret-300 hover:text-claret-700
+    }
+  }
+  
+  @tailwind utilities;

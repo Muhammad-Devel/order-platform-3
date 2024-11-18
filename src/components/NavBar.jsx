@@ -1,33 +1,45 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react"; // Responsive menyuni boshqarish uchun hook
+import { useState, useEffect } from "react"; // Responsive menyuni boshqarish uchun hook
 
-function NavBar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [links, setLinks] = useState()
+
+  // Ekran o'lchami o'zgarganda menyuni yopish
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false); // Katta ekranda menyuni yopamiz
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <nav className="bg-white p-4 shadow-sm">
       <div className="flex justify-between items-center">
-        <div className="text-black text-lg font-bold">My Website</div>
-        <div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-claret-600 text-2xl text-bold md:hidden"
-          >
-            {/* Mobil menyu tugmasi */}☰
-          </button>
-        </div>
+        <div className="text-claret-300 text-lg font-bold">My Website</div>
+
+        {/* Mobil menyu tugmasi */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-claret-600 text-2xl md:hidden"
+        >
+         {isOpen ? "✖": "☰"} 
+        </button>
+
+        {/* Navigatsiya ro'yxati */}
         <ul
           className={`${
-            isOpen ? "block" : "hidden"
-          } md:flex md:space-x-4 mt-4 md:mt-0`}
+            isOpen ? "block shadow-md px-4 py-2 space-y-2" : "hidden"
+          } absolute md:relative top-14 left-0 w-full bg-white md:flex md:items-center md:space-x-4 md:top-auto md:w-auto`}
         >
           <li>
             <NavLink
               to="/"
               className={({ isActive }) =>
-                isActive
-                  ? "text-claret-600 font-bold border-b-2 border-blue-500 tranform delay-150"
-                  : "text-gray-300 hover:text-claret-700 hover:transition-all"
+                 isActive ? "li-styles-active" : "li-styles-hover"
               }
               end
             >
@@ -38,9 +50,7 @@ function NavBar() {
             <NavLink
               to="/buyurtmalar"
               className={({ isActive }) =>
-                isActive
-                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-claret-700"
+                 isActive ? "li-styles-active" : "li-styles-hover"
               }
             >
               Buyurtmalar
@@ -50,9 +60,7 @@ function NavBar() {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive
-                  ? "text-claret-600 font-bold border-b-2 border-blue-500"
-                  : "text-gray-300 hover:text-claret-700"
+               isActive ? "li-styles-active" : "li-styles-hover"
               }
             >
               Login
@@ -64,4 +72,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;
