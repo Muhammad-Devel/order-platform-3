@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react"; // Responsive menyuni boshqarish uchun hook
+import { MdLogin } from "react-icons/md";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,10 +61,12 @@ function Navbar() {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive ? "li-styles-active" : "li-styles-hover"
+                isActive
+                  ? "li-styles-active"
+                  : "li-styles-hover bg-claret-600 border-white rounded-md px-2 py-2 text-white"
               }
             >
-              Login
+              Login <MdLogin className="inline text-xl" />
             </NavLink>
           </li>
         </ul>
