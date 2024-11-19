@@ -27,14 +27,16 @@ function Card({ id, title, image, description, rating, price, promoPrice }) {
                 </span>
               </>
             ) : (
-              <span className="text-xl font-bold text-claret">${price}</span>
+              <span className="text-xl font-bold text-claret-600">
+                ${price}
+              </span>
             )}
           </div>
           <div className="flex space-x-2">
-            <button className="bg-claret text-white text-xs py-2 px-4 rounded hover:bg-claret-700 transition duration-300">
+            <button className="bg-claret-600 text-white text-sm py-2 px-4 rounded hover:bg-claret-700 transition duration-300">
               Buyurtma berish
             </button>
-            <button className="bg-white text-claret text-3xl p-2 rounded-full hover:bg-white-400 transition duration-300">
+            <button className="bg-white text-claret-600 text-3xl p-2 rounded-full hover:bg-white-400 transition duration-300">
               <FaCartPlus />
             </button>
           </div>

@@ -26,7 +26,7 @@ function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className="text-claret-600 text-2xl md:hidden"
         >
-         {isOpen ? "✖": "☰"} 
+          {isOpen ? "✖" : "☰"}
         </button>
 
         {/* Navigatsiya ro'yxati */}
@@ -39,7 +39,7 @@ function Navbar() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                 isActive ? "li-styles-active" : "li-styles-hover"
+                isActive ? "li-styles-active" : "li-styles-hover"
               }
               end
             >
@@ -50,7 +50,7 @@ function Navbar() {
             <NavLink
               to="/buyurtmalar"
               className={({ isActive }) =>
-                 isActive ? "li-styles-active" : "li-styles-hover"
+                isActive ? "li-styles-active" : "li-styles-hover"
               }
             >
               Buyurtmalar
@@ -60,7 +60,7 @@ function Navbar() {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-               isActive ? "li-styles-active" : "li-styles-hover"
+                isActive ? "li-styles-active" : "li-styles-hover"
               }
             >
               Login
