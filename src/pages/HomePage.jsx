@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../components/Header";
-import Hero from "../components/Hero"
+import CardList from "../components/CardList";
+import Hero from "../components/Hero";
 
 const HomePage = () => {
   return (
     <div>
-     <Hero />
-  
+      <Hero />
+      <CardList />
     </div>
   );
 };
