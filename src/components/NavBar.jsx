@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <nav className="bg-white p-4 shadow-sm">
       <div className="flex justify-between items-center">
-        <div className="text-claret-300 text-lg font-bold">My Website</div>
+        <div className="text-claret-300 text-lg font-bold">Cake Order</div>
 
         {/* Mobil menyu tugmasi */}
         <button
@@ -32,7 +32,7 @@ function Navbar() {
         {/* Navigatsiya ro'yxati */}
         <ul
           className={`${
-            isOpen ? "block shadow-md px-4 py-2 space-y-2" : "hidden"
+            isOpen ? "block z-30 shadow-md px-4 py-2 space-y-2" : "hidden"
           } absolute md:relative top-14 left-0 w-full bg-white md:flex md:items-center md:space-x-4 md:top-auto md:w-auto`}
         >
           <li>
