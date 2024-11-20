@@ -1,6 +1,7 @@
 import React from "react";
+import CardList from "./CardList";
 
 const Products = () => {
-  return <h1> All Products</h1>;
+  return <CardList />
 };
 export default Products;

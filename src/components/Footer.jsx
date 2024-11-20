@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { FaTelegram, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
@@ -19,19 +20,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Tezkor havolalar</h3>
             <ul>
               <li className="mb-2">
-                <a href="#" className="text-gray-400 hover:text-white">
+                <NavLink to="/mahsulotlar" className="text-gray-400 hover:text-white">
                   Mahsulotlar
-                </a>
+                </NavLink>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-gray-400 hover:text-white">
+                <NavLink to="/about" className="text-gray-400 hover:text-white">
                   Biz haqimizda
-                </a>
+                </NavLink>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-gray-400 hover:text-white">
+                <NavLink to="/contact" className="text-gray-400 hover:text-white">
                   Aloqa
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
