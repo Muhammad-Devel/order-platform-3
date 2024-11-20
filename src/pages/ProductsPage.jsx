@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BreadcrumbHeader from "../components/BreadcrumbHeader";
 
 const allProducts = [
   { id: 1, name: "Chocolate Cake", description: "Rich chocolate cake with dark chocolate glaze.", price: "$20", imageUrl: "https://via.placeholder.com/150" },
@@ -30,6 +31,7 @@ const ProductsPage = () => {
 
   return (
     <div className="p-6 bg-cosmic_latte-500 min-h-screen">
+      <BreadcrumbHeader title={'Mahsulotlar'}/>
       <h1 className="text-3xl font-bold text-claret-700 mb-8 text-center">Our Products</h1>
 
       {/* Mahsulotlar */}
