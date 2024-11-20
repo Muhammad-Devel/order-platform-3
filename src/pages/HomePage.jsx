@@ -1,12 +1,14 @@
 import React from "react";
-import CardList from "../components/CardList";
 import Hero from "../components/Hero";
+import CardList from "../components/CardList";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
       <CardList />
+      <Footer />
     </div>
   );
 };
