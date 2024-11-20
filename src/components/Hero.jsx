@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-16 sm:px-6 md:py-24 lg:py-32 xl:py-48 text-center lg:text-left">
         <div className="lg:max-w-2xl xl:max-w-3xl mx-auto lg:mx-0">
           <h1 className="text-wrap text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Sevimli ta'mingizni biz bilan toping!
+            Sevimli ta'mingizni biz bilan yarating!
           </h1>
           <p className="text-wrap text-base sm:text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto lg:mx-0">
             Biz eng yangi va mazali shirinliklarni tayyorlaymiz. Bizning
