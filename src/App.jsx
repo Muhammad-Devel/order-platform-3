@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/NavBar";
 import Ordered from "./pages/Ordered";
 import Products from "./components/Products";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/ordered" element={<Ordered />} />
           <Route path="/mahsulotlar" element={<Products />} />
+          <Route path="/allproducts" element={<ProductsPage />} />
         </Routes>
       </div>
     </Router>

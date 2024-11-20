@@ -59,11 +59,21 @@ function Navbar() {
           </li>
           <li>
             <NavLink
+              to="/savat"
+              className={({ isActive }) =>
+                isActive ? "li-styles-active" : "li-styles-hover"
+              }
+            >
+              Savat
+            </NavLink>
+          </li>
+          <li className={`${isOpen ? "border-t-2 border-t-white-400 pt-3":""}`}>
+            <NavLink
               to="/login"
               className={({ isActive }) =>
                 isActive
                   ? "li-styles-active"
-                  : "li-styles-hover bg-claret-600 border-white rounded-md px-2 py-2 text-white"
+                  : `li-styles-hover ${isOpen ? "" : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"} `
               }
             >
               Login <MdLogin className="inline text-xl" />
