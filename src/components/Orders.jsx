@@ -43,12 +43,11 @@ const Orders = () => {
     (currentPage - 1) * ordersPerPage,
     currentPage * ordersPerPage
   );
-  useEffect(() => {
-    fetch("https://api.example.com/orders")
-      .then((response) => response.json())
-      .then((data) => setOrders(data));
-  }, []);
-  
+  // useEffect(() => {
+  //   fetch("https://api.example.com/orders")
+  //     .then((response) => response.json())
+  //     .then((data) => setOrders(data));
+  // }, []);
 
   return (
     <div className="p-6 max-w-4xl mx-auto">

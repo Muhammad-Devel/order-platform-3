@@ -36,7 +36,6 @@ const OrderPage = () => {
     alert(`Buyurtma qabul qilindi: ${JSON.stringify(orderDetails)}`);
   };
 
-
   // Mahsulot sonini o‘zgartirish
   const updateQuantity = (id, newQuantity) => {
     setProducts((prevProducts) =>
@@ -174,7 +173,7 @@ const OrderPage = () => {
           <span className="text-xl text-claret">${totalPrice.toFixed(2)}</span>
         </div>
         <div className="flex justify-between items-center">
-          <p className="text-lg font-bold text-gray-800">Umumiy narx: $50</p>
+          <p className="text-lg font-bold text-gray-800"></p>
           <button
             type="submit"
             className="bg-claret text-white py-2 px-4 rounded hover:bg-claret-700"
