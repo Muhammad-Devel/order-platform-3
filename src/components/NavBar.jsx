@@ -18,7 +18,7 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-white p-4 shadow-sm">
+    <nav className="bg-white p-4 shadow-md">
       <div className="flex justify-between items-center">
         <div className="text-claret-300 text-lg font-bold">Cake Order</div>
 
@@ -49,6 +49,16 @@ function Navbar() {
           </li>
           <li>
             <NavLink
+              to="/mahsulotlar"
+              className={({ isActive }) =>
+                isActive ? "li-styles-active" : "li-styles-hover"
+              }
+            >
+              Mahsulotlar
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/buyurtmalar"
               className={({ isActive }) =>
                 isActive ? "li-styles-active" : "li-styles-hover"
@@ -67,13 +77,19 @@ function Navbar() {
               Savat
             </NavLink>
           </li>
-          <li className={`${isOpen ? "border-t-2 border-t-white-400 pt-3":""}`}>
+          <li
+            className={`${isOpen ? "border-t-2 border-t-white-400 pt-3" : ""}`}
+          >
             <NavLink
               to="/login"
               className={({ isActive }) =>
                 isActive
                   ? "li-styles-active"
-                  : `li-styles-hover ${isOpen ? "" : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"} `
+                  : `li-styles-hover ${
+                      isOpen
+                        ? ""
+                        : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"
+                    } `
               }
             >
               Login <MdLogin className="inline text-xl" />
