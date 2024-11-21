@@ -7,6 +7,7 @@ import Navbar from "./components/NavBar";
 import Products from "./components/Products";
 import ProductsPage from "./pages/ProductsPage";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import Orders from "./components/Orders";
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/buyurtmalar" element={<OrderPage />} />
+          <Route path="/buyurtmalar" element={<Orders />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/mahsulotlar" element={<Products />} />
           <Route path="/allproducts" element={<ProductsPage />} />
+          <Route path="/order-page" element={<OrderPage />} />
         </Routes>
       </div>
     </Router>
