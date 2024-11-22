@@ -12,6 +12,7 @@ import ShoppingCart from "./pages/ShoppingCart";
 import RegisterPage from "./pages/RegisterPage";
 import OTPVerificationPage from "./pages/OTPVerificationPage";
 import UserProfile from "./pages/UserProfile";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/allproducts" element={<ProductsPage />} />
           <Route path="/order-page" element={<OrderPage />} />
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </div>
     </Router>
