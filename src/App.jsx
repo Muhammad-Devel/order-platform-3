@@ -11,6 +11,7 @@ import Orders from "./components/Orders";
 import ShoppingCart from "./pages/ShoppingCart";
 import RegisterPage from "./pages/RegisterPage";
 import OTPVerificationPage from "./pages/OTPVerificationPage";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/mahsulotlar" element={<Products />} />
           <Route path="/allproducts" element={<ProductsPage />} />
           <Route path="/order-page" element={<OrderPage />} />
+          <Route path="/user-profile" element={<UserProfile />} />
         </Routes>
       </div>
     </Router>
