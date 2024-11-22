@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react"; // Responsive menyuni boshqarish uchun hook
 import { MdLogin } from "react-icons/md";
+import { FaCartShopping } from "react-icons/fa6";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,6 +76,7 @@ function Navbar() {
               }
             >
               Savat
+              {/* <FaCartShopping className="inline text-xl ml-1" /> */}
             </NavLink>
           </li>
           <li
