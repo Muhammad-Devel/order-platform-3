@@ -10,6 +10,7 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 import Orders from "./components/Orders";
 import ShoppingCart from "./pages/ShoppingCart";
 import RegisterPage from "./pages/RegisterPage";
+import OTPVerificationPage from "./pages/OTPVerificationPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/savat" element={<ShoppingCart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/otp-verification" element={<OTPVerificationPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/mahsulotlar" element={<Products />} />
           <Route path="/allproducts" element={<ProductsPage />} />
