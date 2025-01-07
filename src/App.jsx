@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import OrderPage from "./pages/OrderPage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/NavBar";
+import SuccessPage from "./components/SuccessPage";
 import Products from "./components/Products";
 import ProductsPage from "./pages/ProductsPage";
 import OrderConfirmation from "./pages/OrderConfirmation";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/savat" element={<ShoppingCart />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/success" element={<SuccessPage />} />
           <Route path="/otp-verification" element={<OTPVerificationPage />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/mahsulotlar" element={<Products />} />

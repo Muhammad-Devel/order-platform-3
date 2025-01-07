@@ -1,10 +1,63 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaRegEye } from "react-icons/fa";
-import { FaRegEyeSlash } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import InputMask from "react-input-mask";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 function LoginPage() {
   const [passwordVisible, setPasswordVisible] = useState(false); // Parol ko'rinishini boshqarish
+  const [phone, setPhone] = useState(""); // Telefon raqam holati
+  const [password, setPassword] = useState(""); // Parol holati
+  const [error, setError] = useState(null); // Xatolarni ko'rsatish uchun
+  const navigate = useNavigate();
+
+  // Formani yuborish funksiyasi
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Telefon va parol kiritilganligini tekshirish
+    if (!phone || !password) {
+      setError("Telefon raqam va parolni kiriting");
+      return;
+    }
+
+    try {
+      // Telefon va parolni post qilyapmiz
+      const response = await axios.post(
+        "http://localhost:5000/auth/login",
+        {
+          phone: phone,
+          password: password,
+        },
+        { headers: { "Content-Type": "application/json" } } // Bu yerda obyekt shaklida
+      );
+
+      // Agar login muvaffaqiyatli bo'lsa
+      if (response.data.login) {
+        localStorage.setItem("login", JSON.stringify(response.data));
+        // Muvaffaqiyatli kirgandan so'ng boshqa sahifaga o'tish yoki boshqa amalni bajarish mumkin
+        navigate("/");
+      } else {
+        setError(response.data.login); // Xatolik xabarini foydalanuvchiga ko'rsatish
+      }
+    } catch (err) {
+      if (err.response) {
+        const status = err.response.status;
+        if (status === 400) {
+          setError(err.response.data.message);
+        } else if (status === 401) {
+          setError("Noto'g'ri foydalanuvchi yoki parol.");
+        } else if (status === 500) {
+          setError("Serverda xato yuz berdi. Keyinroq urinib ko'ring.");
+        } else {
+          setError("Noma'lum xato yuz berdi.");
+        }
+      } else if (err.request) {
+        // So'rov amalga oshirilgan, lekin javob olinmagan
+        setError("Server javob bermadi. Iltimos, keyinroq urinib ko'ring.");
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -14,8 +67,11 @@ function LoginPage() {
           Login
         </h1>
 
+        {/* Xatolikni ko'rsatish */}
+        {error && <div className="text-red-500 text-center mb-4">{error}</div>}
+
         {/* Kirish formasi */}
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Telefon raqam */}
           <div className="mb-4">
             <label
@@ -24,14 +80,14 @@ function LoginPage() {
             >
               Telefon raqam
             </label>
-            <input
-              type="tel"
+            <InputMask
+              mask="\+\9\9\8 (99) 999-99-99"
+              value={phone}
               id="phone"
               name="phone"
-              placeholder="+998 (__) ___-__-__"
+              onChange={(e) => setPhone(e.target.value)} // Telefon raqamni to'g'ri yangilash
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-claret focus:outline-none"
-              pattern="^\+998\s\(\d{2}\)\s\d{3}-\d{2}-\d{2}$"
-              required
+              placeholder="+998 (__) ___-__-__"
             />
           </div>
 
@@ -47,6 +103,8 @@ function LoginPage() {
               type={passwordVisible ? "text" : "password"} // Ko'rinishni boshqarish
               id="password"
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Parolingizni kiriting"
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-claret focus:outline-none"
               required
