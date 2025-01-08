@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import OrderPage from "./pages/OrderPage";
 import LoginPage from "./pages/LoginPage";
@@ -16,27 +16,34 @@ import UserProfile from "./pages/UserProfile";
 import AboutUs from "./pages/AboutUs";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("login");
+    if (!loggedInUser) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/buyurtmalar" element={<Orders />} />
-          <Route path="/savat" element={<ShoppingCart />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/success" element={<SuccessPage />} />
-          <Route path="/otp-verification" element={<OTPVerificationPage />} />
-          <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/mahsulotlar" element={<Products />} />
-          <Route path="/allproducts" element={<ProductsPage />} />
-          <Route path="/order-page" element={<OrderPage />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/about" element={<AboutUs />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/buyurtmalar" element={<Orders />} />
+        <Route path="/savat" element={<ShoppingCart />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/otp-verification" element={<OTPVerificationPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        <Route path="/mahsulotlar" element={<Products />} />
+        <Route path="/allproducts" element={<ProductsPage />} />
+        <Route path="/order-page" element={<OrderPage />} />
+        <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/about" element={<AboutUs />} />
+      </Routes>
+    </div>
   );
 }
 
