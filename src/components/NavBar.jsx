@@ -36,98 +36,94 @@ function Navbar() {
       <div className="flex justify-between items-center">
         <div className="text-claret-300 text-lg font-bold">Cake Order</div>
 
-        {/* Mobil menyu tugmasi */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-claret-600 text-2xl md:hidden"
-        >
-          {isOpen ? "✖" : "☰"}
-        </button>
-
-        {/* Navigatsiya ro'yxati */}
-        <ul
-          className={`${
-            isOpen ? "block z-30 shadow-md px-4 py-2 space-y-2" : "hidden"
-          } absolute md:relative top-14 left-0 w-full bg-white md:flex md:items-center md:space-x-4 md:top-auto md:w-auto`}
-        >
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? "li-styles-active" : "li-styles-hover"
-              }
-              end
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/mahsulotlar"
-              className={({ isActive }) =>
-                isActive ? "li-styles-active" : "li-styles-hover"
-              }
-            >
-              Mahsulotlar
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/buyurtmalar"
-              className={({ isActive }) =>
-                isActive ? "li-styles-active" : "li-styles-hover"
-              }
-            >
-              Buyurtmalar
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/savat"
-              className={({ isActive }) =>
-                isActive ? "li-styles-active" : "li-styles-hover"
-              }
-            >
-              Savat
-              {/* <FaCartShopping className="inline text-xl ml-1" /> */}
-            </NavLink>
-          </li>
-          <li
-            className={`${isOpen ? "border-t-2 border-t-white-400 pt-3" : ""}`}
+        {!isLogin ? (
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              isActive ? "li-styles-active" : "li-styles-hover"
+            }
+            end
           >
-            {isLogin ? (
-              <button
-                onClick={logOutUser}
-                className={({ isActive }) =>
-                  isActive
-                    ? "li-styles-active"
-                    : `li-styles-hover ${
-                        isOpen
-                          ? ""
-                          : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"
-                      } `
-                }
+            A'zo bo'lish
+          </NavLink>
+        ) : (
+          <>
+            {/* menu for Mobile */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-claret-600 text-2xl md:hidden"
+            >
+              {isOpen ? "✖" : "☰"}
+            </button>
+
+            {/* Navigatsiya ro'yxati */}
+            <ul
+              className={`${
+                isOpen ? "block z-30 shadow-md px-4 py-2 space-y-2" : "hidden"
+              } absolute md:relative top-14 left-0 w-full bg-white md:flex md:items-center md:space-x-4 md:top-auto md:w-auto`}
+            >
+              <li>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "li-styles-active" : "li-styles-hover"
+                  }
+                  end
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/mahsulotlar"
+                  className={({ isActive }) =>
+                    isActive ? "li-styles-active" : "li-styles-hover"
+                  }
+                >
+                  Mahsulotlar
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/buyurtmalar"
+                  className={({ isActive }) =>
+                    isActive ? "li-styles-active" : "li-styles-hover"
+                  }
+                >
+                  Buyurtmalar
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/savat"
+                  className={({ isActive }) =>
+                    isActive ? "li-styles-active" : "li-styles-hover"
+                  }
+                >
+                  <FaCartShopping className="inline ml-1" size={30} />
+                </NavLink>
+              </li>
+              <li
+                className={`${
+                  isOpen ? "border-t-2 border-t-white-400 pt-3" : ""
+                }`}
               >
-                Logout <MdLogout className="inline text-xl" />
-              </button>
-            ) : (
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive
-                    ? "li-styles-active"
-                    : `li-styles-hover ${
-                        isOpen
-                          ? ""
-                          : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"
-                      } `
-                }
-              >
-                Login <MdLogin className="inline text-xl" />
-              </NavLink>
-            )}
-          </li>
-        </ul>
+                {isLogin && (
+                  <button
+                    onClick={logOutUser}
+                    className={`li-styles-hover ${
+                      isOpen
+                        ? ""
+                        : "bg-claret-600 border-white rounded-md px-2 py-2 text-white"
+                    }`}
+                  >
+                    Log Out <MdLogout className="inline text-xl" />
+                  </button>
+                )}
+              </li>
+            </ul>
+          </>
+        )}
       </div>
     </nav>
   );

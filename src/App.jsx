@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("login");
-    if (!loggedInUser) {
+    if (!loggedInUser && window.location.pathname !== "/register") {
       navigate("/login");
     }
   }, [navigate]);
