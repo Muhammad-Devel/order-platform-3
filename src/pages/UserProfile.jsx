@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function UserProfile() {
   const [isEditing, setIsEditing] = useState(false); // Tahrirlash rejimi
   const [activeTab, setActiveTab] = useState("profile"); // Aktiv bo'limni aniqlash
 
-  const [userData, setUserData] = useState({
-    name: "Jumaboyev M.A.",
-    phone: "+998901234567",
-  });
+  const [userData, setUserData] = useState([]); //details of user
 
   const [editedData, setEditedData] = useState({ ...userData });
+
+  //get user data in local storage
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("login"));
+    setUserData(user);
+    setEditedData(user);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

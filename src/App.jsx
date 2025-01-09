@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import OrderPage from "./pages/OrderPage";
 import LoginPage from "./pages/LoginPage";
@@ -14,21 +14,47 @@ import RegisterPage from "./pages/RegisterPage";
 import OTPVerificationPage from "./pages/OTPVerificationPage";
 import UserProfile from "./pages/UserProfile";
 import AboutUs from "./pages/AboutUs";
+import Loader from "./components/Loader";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("login");
     if (!loggedInUser && window.location.pathname !== "/register") {
       navigate("/login");
+      setIsLogin(false);
     }
   }, [navigate]);
 
+  useEffect(() => {
+    // Sahifa almashganida yuklanishni boshqarish
+    const handleStart = () => setLoading(true);
+    const handleComplete = () => setLoading(false);
+
+    // Sahifa almashish hodisalarini qo'shamiz
+    window.addEventListener("beforeunload", handleStart);
+    window.addEventListener("load", handleComplete);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleStart);
+      window.removeEventListener("load", handleComplete);
+    };
+  }, [location]);
+
   return (
     <div>
-      <Navbar />
+      {loading && <Loader />}
+      {/* Navbar doimiy ravishda mavjud */}
+      {location.pathname !== "/login" && location.pathname !== "/register" && (
+        <Navbar isLogin={isLogin} />
+      )}
+
       <Routes>
+        {/* Sahifalar uchun routing */}
         <Route path="/" element={<HomePage />} />
         <Route path="/buyurtmalar" element={<Orders />} />
         <Route path="/savat" element={<ShoppingCart />} />
