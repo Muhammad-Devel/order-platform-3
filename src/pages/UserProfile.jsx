@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function UserProfile() {
   const [isEditing, setIsEditing] = useState(false); // Tahrirlash rejimi
   const [activeTab, setActiveTab] = useState("profile"); // Aktiv bo'limni aniqlash
-
+  const [error, setError] = useState(null); // this is for errors
   const [userData, setUserData] = useState([]); //details of user
 
   const [editedData, setEditedData] = useState({ ...userData });
 
-  //get user data in local storage
+  //get the user data in a local storage
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("login"));
     setUserData(user);
@@ -26,6 +27,26 @@ function UserProfile() {
   const handleSave = () => {
     setUserData(editedData);
     setIsEditing(false);
+    axios({
+      method: "PUT",
+      url: `http://localhost:5000/auth/update/${userData._id}`,
+      data: {
+        name: editedData.name,
+        phone: editedData.phone,
+      },
+    })
+      .then((response) => {
+        if (response.data) {
+          localStorage.setItem("login", JSON.stringify(response.data));
+          console.log("User data updated successfully", response.data);
+        } else {
+          setError("User data not updated");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setError("User data not updated");
+      });
   };
 
   return (
@@ -170,6 +191,9 @@ function UserProfile() {
                   </div>
                 </form>
               )}
+              <div className="mt-4">
+                <p className="text-red-500">{error}</p>
+              </div>
             </div>
           )}
 
