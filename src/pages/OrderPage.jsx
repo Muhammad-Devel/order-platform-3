@@ -1,30 +1,21 @@
 import React, { useState } from "react";
-
-const initialProducts = [
-  {
-    id: 1,
-    name: "Chocolate Cake",
-    price: 20,
-    quantity: 1,
-    image: "https://via.placeholder.com/150", // O‘rniga haqiqiy rasm url kiriting
-  },
-  {
-    id: 2,
-    name: "Vanilla Cake",
-    price: 18,
-    quantity: 2,
-    image: "https://via.placeholder.com/150",
-  },
-];
+import { useLocation } from "react-router-dom";
 
 const OrderPage = () => {
+  const location = useLocation();
+  const { id, title, image, description, rating, price, promoPrice, quantity } =
+    location.state || {};
+  console.log(location.state);
+
   const [orderDetails, setOrderDetails] = useState({
     name: "",
     phone: "",
     address: "",
     paymentMethod: "cash",
   });
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState(
+    location.state ? [location.state] : {}
+  );
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

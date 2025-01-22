@@ -1,17 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 import StarRating from "./StarRating";
 
-function Card({ id, title, image, description, rating, price, promoPrice }) {
-  
-  function setOrder(id) {
-    
+function Card({ id, name, image, description, rating, price, promoPrice }) {
+  const navigate = useNavigate();
+  function handleOrder(id) {
+    navigate(`/order-page`, {
+      state: {
+        id,
+        name,
+        image,
+        description,
+        rating,
+        price,
+        promoPrice,
+        quantity: 1,
+      },
+    });
   }
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white transition-transform transform hover:scale-105">
-      <img className="w-full h-48 object-cover" src={image} alt={title} />
+    <div
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-white transition-transform transform hover:scale-105"
+      id={id}
+    >
+      <img className="w-full h-48 object-cover" src={image} alt={name} />
       <div className="px-6 py-4">
-        <div className="font-bold text-claret-300 text-xl mb-2">{title}</div>
+        <div className="font-bold text-claret-300 text-xl mb-2">{name}</div>
         <p className="text-white-200 text-base mb-4">{description}</p>
 
         <div className="flex items-center justify-between text-white-300 mb-4">
@@ -37,7 +52,10 @@ function Card({ id, title, image, description, rating, price, promoPrice }) {
         {/* Narx va tugmalar qismi */}
         <div className="flex items-center justify-between">
           <div className="flex space-x-2">
-            <button className="bg-claret-600 text-white text-sm py-2 px-4 rounded hover:bg-claret-700 transition duration-300" onClick={setOrder}>
+            <button
+              className="bg-claret-600 text-white text-sm py-2 px-4 rounded hover:bg-claret-700 transition duration-300"
+              onClick={() => handleOrder(id)}
+            >
               Buyurtma berish
             </button>
             <button className="bg-white text-claret-600 text-3xl p-2 rounded-full hover:bg-white-400 transition duration-300">

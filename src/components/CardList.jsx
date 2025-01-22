@@ -9,7 +9,9 @@ function CardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/product/all");
+        const response = await axios.get(
+          "http://localhost:5000/api/product/all"
+        );
         setData(response.data);
       } catch (err) {
         console.error("xatolik yuz berdi", err);
@@ -30,11 +32,11 @@ function CardList() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center py-8">
-          {data.map((card) => (
+          {data.map((card, index) => (
             <Card
-              key={card.id}
-              id={card.id}
-              title={card.title}
+              key={index}
+              id={card._id}
+              name={card.name}
               image={card.image}
               description={card.description}
               rating={card.rating}
