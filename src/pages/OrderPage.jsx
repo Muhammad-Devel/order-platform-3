@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+import { createOrder } from "../services/api";
 
 const OrderPage = () => {
+  const { userDetails } = useContext(UserContext);
+  console.log(userDetails);
+
   const location = useLocation();
   const { id, title, image, description, rating, price, promoPrice, quantity } =
     location.state || {};
   console.log(location.state);
 
   const [orderDetails, setOrderDetails] = useState({
-    name: "",
-    phone: "",
-    address: "",
-    paymentMethod: "cash",
+    name: userDetails.name,
+    phone: userDetails.phone,
+    address: userDetails.address,
+    paymentMethod: "Cash",
   });
   const [products, setProducts] = useState(
     location.state ? [location.state] : {}
@@ -22,9 +27,25 @@ const OrderPage = () => {
     setOrderDetails({ ...orderDetails, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Buyurtma qabul qilindi: ${JSON.stringify(orderDetails)}`);
+    const userId = userDetails._id;
+    const order = {
+      userId: userId,
+      items: products.map((product) => ({
+        productId: product.id,
+        quantity: product.quantity,
+        price: product.price,
+      })),
+      paymentMethod: orderDetails.paymentMethod,
+      totalAmount: products.reduce(
+        (sum, product) => sum + product.price * product.quantity,
+        0
+      ),
+    };
+    console.log(order);
+    const response = await createOrder(order);
+    console.log("Order created:", response);
   };
 
   // Mahsulot sonini o‘zgartirish
@@ -116,8 +137,8 @@ const OrderPage = () => {
             onChange={handleInputChange}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           >
-            <option value="cash">Naqd</option>
-            <option value="card">Karta</option>
+            <option value="Cash">Naqd</option>
+            <option value="Card">Karta</option>
           </select>
         </div>
         {/* Mahsulotlar bloki */}
